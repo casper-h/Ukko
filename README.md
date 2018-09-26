@@ -28,6 +28,7 @@ For the most part the design should follow the native platform design guidelines
 
 * [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/)
 * [Android](https://material.io/design/)
+* [UWP](https://developer.microsoft.com/en-us/windows/apps/design)
 
 For the design portion a couple tools will be used to help the design process go a little more smoothly across different screen sizes, aspect ratios, etc and so we can keep a common theme. 
 
