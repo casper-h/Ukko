@@ -1,6 +1,6 @@
 # Ukko
 
-*Ukko* the Finnish god of the weather, and the skies. The highest of the pagan gods resembling Thor with an axe that allows him to control lightning.
+*Ukko* the Finnish god of weather, and the skies. The highest of the pagan gods resembling Thor with an axe that allows him to control lightning.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ The getting started guide is still currently in progress and will later have bas
 
 ## Contribution Conventions and Guidelines
 
-To keep the developers happy please use the  conventions and guidelines throughout the application. They are very grumpy creatures.
+To keep the developers happy please use conventions and guidelines throughout the application. Developers can sometimes be very grumpy creatures.
 
 * [Microsoft C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
 * [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/vNext/CONTRIBUTING.md)
