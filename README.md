@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-## Tech Stack
+### Tech Stack
 
 * [Xamarin.Forms](https://github.com/xamarin/Xamarin.Forms)
 * [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
