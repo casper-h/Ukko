@@ -20,6 +20,8 @@ The getting started guide is still currently in progress and will later have bas
 * Install Xamarin with the Visual Studio Installer. Will be targeting the three latest versions and all of their updates for Android, and iOS. *Visual Studio only please to keep this consistent as other IDEs have cause build errors for one or the other with metadata conflicts, and file generation.*
 * In the *Turn Windows Features on and Off* panel within Windows ensure that all the options are marked with a checkbox for IIS.
 
+**Please be sure to build locally and that the build is successful, and tests have passed before pushing to GitHub. Regression tests included.** Breaking the build may result in expulsion as a collaborator.
+
 ### UI/UX and Design Tools
 
 For the most part the design should follow the native platform design guidelines. This is to keep it as familiar and easy to use as possible in each respective ecosystem for their users. All design in Xamarin should be handled in XAML and not the codebehind.
@@ -32,7 +34,7 @@ For the design portion a couple tools will be used to help the design process go
 * [Adobe XD](https://www.adobe.com/products/xd.html)
 * [Zeplin](https://zeplin.io/)
 
-**Please be sure to build locally and that the build is successful, and tests have passed before pushing to GitHub. Regression tests included.** 
+Design files and assets should be moved to their respective location. So in the case of Adobe XD files they should be saved to the iOS folder for iOS designs on the design branch. The assets exported for direct use should be in the correct location within the project for development on a development branch.
 
 ## Contribution Conventions and Guidelines
 
