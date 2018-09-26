@@ -10,11 +10,29 @@
 * [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
 * [Refit REST Library](https://github.com/reactiveui/refit)
 * [Splat](https://github.com/reactiveui/splat)
-* [ASP.NET Core WebAPI 2.X](https://github.com/aspnet/Home)
+* [ASP.NET Core WebAPI 2.1](https://github.com/aspnet/Home)
 
 ### Developer Environment Setup
 
 The getting started guide is still currently in progress and will later have basic environment details. Until then hang tight and thank you for your interest in our humble project.
+
+* Download and install [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+* Install Xamarin with the Visual Studio Installer. Will be targeting the three latest versions and all of their updates for Android, and iOS. *Visual Studio only please to keep this consistent as other IDEs have cause build errors for one or the other with metadata conflicts, and file generation.*
+* In the *Turn Windows Features on and Off* panel within Windows ensure that all the options are marked with a checkbox for IIS.
+
+### UI/UX and Design Tools
+
+For the most part the design should follow the native platform design guidelines. This is to keep it as familiar and easy to use as possible in each respective ecosystem for their users. All design in Xamarin should be handled in XAML and not the codebehind.
+
+* [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/)
+* [Android](https://material.io/design/)
+
+For the design portion a couple tools will be used to help the design process go a little more smoothly across different screen sizes, aspect ratios, etc and so we can keep a common theme. 
+
+* [Adobe XD](https://www.adobe.com/products/xd.html)
+* [Zeplin](https://zeplin.io/)
+
+**Please be sure to build locally and that the build is successful, and tests have passed before pushing to GitHub. Regression tests included.** 
 
 ## Contribution Conventions and Guidelines
 
