@@ -12,6 +12,10 @@
 * [Splat](https://github.com/reactiveui/splat)
 * [ASP.NET Core WebAPI 2.1](https://github.com/aspnet/Home)
 
+### Services
+
+* [OpenWeatherMapAPI](https://openweathermap.org/api)
+
 ### Developer Environment Setup
 
 The getting started guide is still currently in progress and will later have basic environment details. Until then hang tight and thank you for your interest in our humble project.
@@ -26,6 +30,7 @@ The getting started guide is still currently in progress and will later have bas
 
 For the most part the design should follow the native platform design guidelines. This is to keep it as familiar and easy to use as possible in each respective ecosystem for their users. All design in Xamarin should be handled in XAML and not the codebehind.
 
+* To begin with Android will be the only project we will focus on. Eventually we shall add in functionality for iOS and UWP as desired to keep the initial release small.
 * [iOS](https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/)
 * [Android](https://material.io/design/)
 * [UWP](https://developer.microsoft.com/en-us/windows/apps/design)
