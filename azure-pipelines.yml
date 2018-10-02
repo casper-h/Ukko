@@ -21,7 +21,7 @@ jobs:
       outputDirectory: '$(outputDirectory)'
       configuration: '$(buildConfiguration)'
 
-  job: netcore
+- job: netcore
   pool:
     vmImage: 'Ubuntu 16.04'
   variables:
