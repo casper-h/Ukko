@@ -17,7 +17,7 @@ namespace Ukko.Services
             this.us = RestService.For<IUkkoService>(
                 new HttpClient()
                 {
-                    BaseAddress = new Uri(@"localhost:51059/api/Weather")
+                    BaseAddress = new Uri(@"http://localhost:51059/api/")
                 },
                 new RefitSettings
                 {
@@ -32,6 +32,9 @@ namespace Ukko.Services
         /// <param name="zipCode"></param>
         /// <returns></returns>
         public async Task<CurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipCode)
-            => await this.us.GetCurrentWeatherByZipCodeAsync(zipCode).ConfigureAwait(false);
+        {
+            var result = await this.us.GetCurrentWeatherByZipCodeAsync(zipCode).ConfigureAwait(false); ;
+            return result;
+        }
     }
 }
