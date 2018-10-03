@@ -9,20 +9,13 @@ namespace Ukko
 {
     public partial class App : Application
     {
-        //TODO: Replace with *.azurewebsites.net url after deploying backend to Azure
         public static string AzureBackendUrl = "http://localhost:5000";
-        public static bool UseMockDataStore = true;
 
         public App()
         {
             InitializeComponent();
 
-            if (UseMockDataStore)
-                DependencyService.Register<MockDataStore>();
-            else
-                DependencyService.Register<AzureDataStore>();
-
-            MainPage = new MainPage();
+            MainPage = new UkkoTest();
         }
 
         protected override void OnStart()
