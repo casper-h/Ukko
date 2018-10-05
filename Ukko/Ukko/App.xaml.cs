@@ -3,13 +3,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Ukko.Services;
 using Ukko.Views;
+using System.Diagnostics;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Ukko
 {
     public partial class App : Application
     {
-        public static string AzureBackendUrl = "http://localhost:5000";
+        public static readonly string AzureBackendUrl = "http://ukkoweather.azurewebsites.net/api";
 
         public App()
         {
