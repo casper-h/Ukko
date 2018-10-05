@@ -5,9 +5,7 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ukko.Android", "Ukko\Ukko.Android\Ukko.Android.csproj", "{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ukko", "Ukko\Ukko\Ukko.csproj", "{2D1538ED-775A-4169-A6E1-07A2FBC99A83}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ukko.API", "Ukko.API\Ukko.API.csproj", "{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ukko", "Ukko\Ukko.csproj", "{2D1538ED-775A-4169-A6E1-07A2FBC99A83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,30 +83,6 @@ Global
 		{2D1538ED-775A-4169-A6E1-07A2FBC99A83}.Release|x64.Build.0 = Release|Any CPU
 		{2D1538ED-775A-4169-A6E1-07A2FBC99A83}.Release|x86.ActiveCfg = Release|Any CPU
 		{2D1538ED-775A-4169-A6E1-07A2FBC99A83}.Release|x86.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|ARM.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|x64.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Debug|x86.Build.0 = Debug|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|ARM.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|ARM.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|iPhone.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|x64.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|x64.Build.0 = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|x86.ActiveCfg = Release|Any CPU
-		{13D5BFF7-0240-43CB-BAA2-E469F73F85A4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

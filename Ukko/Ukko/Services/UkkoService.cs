@@ -17,7 +17,7 @@ namespace Ukko.Services
             this.us = RestService.For<IUkkoService>(
                 new HttpClient()
                 {
-                    BaseAddress = new Uri(@"http://localhost:51059/api/")
+                    BaseAddress = new Uri("http://localhost:51059/api")
                 },
                 new RefitSettings
                 {
