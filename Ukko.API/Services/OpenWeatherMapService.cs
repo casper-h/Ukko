@@ -19,9 +19,7 @@ namespace Ukko.API.Services
 
         private string ApiKey { get; set; }
 
-        public OpenWeatherMapService()
-        {
-            this.owms = RestService.For<IOpenWeatherMapService>(
+        public OpenWeatherMapService() => this.owms = RestService.For<IOpenWeatherMapService>(
                 new HttpClient()
                 {
                     BaseAddress = new Uri(@"https://api.openweathermap.org/data/2.5")
@@ -31,7 +29,6 @@ namespace Ukko.API.Services
                     JsonSerializerSettings = Utilities.JsonSettingsUtility.GetSnakeCaseJsonSerializerSettings()
                 }
             );
-        }
 
         /// <summary>
         /// Retrieves the app key from azure key vault, and sets for use in the API service.
@@ -42,9 +39,8 @@ namespace Ukko.API.Services
             if (ApiKey is null)
             {
                 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                var secret = await keyVaultClient
-                    .GetSecretAsync("https://ukkokeyvault.vault.azure.net/secrets/OwmApiKey")
+                var secret = await new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback))
+                    .GetSecretAsync(@"https://ukkokeyvault.vault.azure.net/secrets/OwmApiKey")
                     .ConfigureAwait(false);
 
                 this.ApiKey = secret.Value;
