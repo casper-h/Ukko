@@ -25,6 +25,16 @@ namespace Ukko.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(cors =>
+            {
+                cors.AddPolicy("AllowAll", policy => policy
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+
+                cors.DefaultPolicyName = "AllowAll";
+            });
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

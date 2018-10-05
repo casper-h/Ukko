@@ -14,11 +14,7 @@ namespace Ukko.Services
 
         public UkkoService()
         {
-            this.us = RestService.For<IUkkoService>(
-                new HttpClient()
-                {
-                    BaseAddress = new Uri("http://localhost:51059/api")
-                },
+            this.us = RestService.For<IUkkoService>(App.AzureBackendUrl,
                 new RefitSettings
                 {
                     JsonSerializerSettings = Utilities.JsonSettingsUtility.GetSnakeCaseJsonSerializerSettings()
