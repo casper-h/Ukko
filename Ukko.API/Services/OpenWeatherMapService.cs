@@ -40,7 +40,7 @@ namespace Ukko.API.Services
             {
                 var azureServiceTokenProvider = new AzureServiceTokenProvider();
                 var secret = await new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback))
-                    .GetSecretAsync(@"https://ukkokeyvault.vault.azure.net/secrets/OwmApiKey")
+                    .GetSecretAsync(@"https://ukko.vault.azure.net/secrets/OwmApiKey")
                     .ConfigureAwait(false);
 
                 this.ApiKey = secret.Value;
