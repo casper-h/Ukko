@@ -10,8 +10,7 @@ namespace Ukko
 {
     public partial class App : Application
     {
-        public static readonly string AzureBackendUrl = IS_DEBUG ? ApplicationSettings.LOCALHOST_API_ADDRESS : ApplicationSettings.RELEASE_API_ADDRESS;
-        public static readonly bool IS_DEBUG = Debugger.IsAttached;
+        public static readonly string AzureBackendUrl = "https://ukkoapi.azurewebsites.net/api";
 
         public App()
         {
