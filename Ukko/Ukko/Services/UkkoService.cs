@@ -28,9 +28,6 @@ namespace Ukko.Services
         /// <param name="zipCode"></param>
         /// <returns></returns>
         public async Task<CurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipCode)
-        {
-            var result = await this.us.GetCurrentWeatherByZipCodeAsync(zipCode).ConfigureAwait(false); ;
-            return result;
-        }
+            => await this.us.GetCurrentWeatherByZipCodeAsync(zipCode).ConfigureAwait(false);
     }
 }
