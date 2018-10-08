@@ -14,7 +14,7 @@ namespace Ukko.Services
 
         public UkkoService()
         {
-            this.us = RestService.For<IUkkoService>(App.AzureBackendUrl,
+            this.us = RestService.For<IUkkoService>(ApplicationSettings.AzureBackendUrl,
                 new RefitSettings
                 {
                     JsonSerializerSettings = Utilities.JsonSettingsUtility.GetSnakeCaseJsonSerializerSettings()
