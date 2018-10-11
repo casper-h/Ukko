@@ -2,9 +2,7 @@
 
 *Ukko* the Finnish god of weather, and the skies. The highest of the pagan gods resembling Thor with an axe that allows him to control lightning.
 
-## Getting Started
-
-### Tech Stack
+## Tech Stack
 
 * [Xamarin.Forms](https://github.com/xamarin/Xamarin.Forms)
 * [ReactiveUI](https://github.com/reactiveui/ReactiveUI)
@@ -12,19 +10,30 @@
 * [Splat](https://github.com/reactiveui/splat)
 * [ASP.NET Core WebAPI 2.1](https://github.com/aspnet/Home)
 
-### Services
+## Services
 
 * [OpenWeatherMapAPI](https://openweathermap.org/api)
 
-### Developer Environment Setup
+## Getting Started
 
-The getting started guide is still currently in progress and will later have basic environment details. Until then hang tight and thank you for your interest in our humble project.
+### Install
 
 * Download and install [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 * Install Visual Studio Community with .NET Core, and Xamarin options selected. Will be targeting the three latest versions and all of their updates for Android, and iOS. *Visual Studio only please to keep this consistent as other IDEs have cause build errors for one or the other with metadata conflicts, and file generation.*
 * Install [Conveyor](https://marketplace.visualstudio.com/items?itemName=vs-publisher-1448185.ConveyorbyKeyoti) and follow all of the directions on the page for configuration. This will greatly simplify testing on a remote device. If you have some other preferred method go ahead and do that. *Might only work on Windows*.
+* Clone the repo
 
-After cloning you will need to make a change before you can successfully use the application. Locate the *ApplicationSettings.cs* file located in the *...\<DIRECTORY_PROJECT_CLONED_TO>\Ukko\Ukko\Ukko* directory and open it. Then open the *Ukko.API.sln* (API solution) and run it by going to the debug menu or pressing F5. A window should pop up like the one from the conveyor instructions. Copy the IP addres it displays (your local network ip for your dev machine) and the port. Then paste this in the ApplicationSettings file for the *LOCALHOST_API_ADDRESS* value. Should look like the following:
+**Please be sure to build locally and that the build is successful, and tests have passed before pushing to GitHub. Regression tests included.** Breaking the build may result in expulsion as a collaborator.
+
+#### Ukko API
+
+There are two ways to run this application one is within Visual Studio, and the other is through command line which will later be detailed in the usage section. You are free to use whichever you want to run the application. During setup to get our machine ip setup correctly its easiest to at least run it initially through Visual Studio.
+
+Open the *Ukko.API* solution in visual studio *(.sln filetype)*, and run the debugger. A small window should pop up for conveyor if installed containing at least one row. Copy the Remote URL and port then open postman to test that it was the correct address if more than one was present. In postman create a GET request and paste in the following `<REMOTE_URL>/api/Weather/Current/<ZIPCODE>` and send. You should get back a current weather response.
+
+#### Ukko Applications
+
+Run Ukko.API and run it then open *Ukko.sln* in Visual Studio. Locate and open *ApplicationSettings.cs* file located in the root of the *Ukko* project in Solution Explorer. Then paste the Remote URL you got in the section above and paste in ApplicationSettings file for the *LOCALHOST_API_ADDRESS* value; appending `/api` at the end. Should look like the following:
 
 ```csharp
 public static readonly string LOCALHOST_API_ADDRESS = "http://192.168.86.24:45455/api";
@@ -32,9 +41,51 @@ public static readonly string LOCALHOST_API_ADDRESS = "http://192.168.86.24:4545
 
 This is so you can test the API locally within the android emulator. This will be most useful after changes are made to the API project, and to offload costs with server bandwith.
 
-**Please be sure to build locally and that the build is successful, and tests have passed before pushing to GitHub. Regression tests included.** Breaking the build may result in expulsion as a collaborator.
+### Usage
 
-### UI/UX and Design Tools
+The project is comprised of two parts. One is the API / backend, and the other is the Xamarin project which accounts for users and frontend across mobile/Windows apps. While developing the API project must be ran seperatly from the xamarin project to hit the APIs at least until a mock API is created.
+
+#### Ukko API
+
+There are two ways to run the application, but debugging is easier in Visual Studio.
+
+##### Visual Studio
+
+Open the Ukko.API solution, and hit F5 or go to the Debug menu and select Start Debugging.
+
+##### Command Line
+
+Enter the following command in the `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.API\` folder.
+
+```bash
+dotnet run
+```
+
+#### Ukko Applications
+
+The application projects must run Ukko API to test since they use the API project to perform API calls. The command line approach for the Ukko API is recommended here since it is lightweight.
+
+Open the Ukko project in Visual Studio and run the Ukko.Android project.
+
+>*You may have to explicitly start the Android/iOS/UWP application if the startup project is not set to the desired Ukko.PLATFORM project already.*
+
+## API Documentation
+
+There is a swagger doc located within the project located at:
+
+**Developer**
+
+```url
+<LOCAL_IP>:<PORT>/swagger
+```
+
+**Production**
+
+```url
+https://ukkoapi.azurewebsites.net/swagger
+```
+
+## UI/UX and Design Tools
 
 For the most part the design should follow the native platform design guidelines. This is to keep it as familiar and easy to use as possible in each respective ecosystem for their users. All design in Xamarin should be handled in XAML and not the codebehind.
 
