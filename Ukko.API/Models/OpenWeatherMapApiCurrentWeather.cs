@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ukko.API.Models
 {
-    public partial class CurrentWeather
+    public partial class OpenWeatherMapApiCurrentWeather
     {
         [JsonProperty("coord")]
         public Coord Coord { get; set; }

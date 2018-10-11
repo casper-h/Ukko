@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ukko.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace Ukko.API.Controllers
 {
@@ -21,7 +22,7 @@ namespace Ukko.API.Controllers
         }
 
         /// <summary>
-        /// Gets the current weather for a given zipcode.
+        /// Gets the current weather for a given US zipcode.
         /// </summary>
         /// <param name="zipCode">The zipcode for a users area</param>
         /// <returns>
@@ -67,12 +68,39 @@ namespace Ukko.API.Controllers
         ///    "cod": 200
         /// }
         /// </returns>
-        /// <example>
-        /// /api/Weather/12345
-        /// </example>
-        [HttpGet("{zipCode}")]
-        [ProducesResponseType(typeof(CurrentWeather), 200)]
+        [HttpGet("Current/{zipCode}")]
+        [ProducesResponseType(typeof(OpenWeatherMapApiCurrentWeather), 200)]
         public async Task<IActionResult> GetCurrentWeatherByZipCodeAsync(uint zipCode)
-            => Ok(await this.owms.GetCurrentWeatherByZipCodeAsync(zipCode));
+        {
+            if (!Regex.Match(zipCode.ToString(), @"^[0-9]{5}(?:-[0-9]{4})?$").Success)
+            {
+                return BadRequest(new { message = "Provided ZipCode was not a valid United States ZipCode." });
+            }
+
+            OpenWeatherMapApiCurrentWeather currentWeatherResult = new OpenWeatherMapApiCurrentWeather();
+
+            try
+            {
+                currentWeatherResult = await this.owms.GetCurrentWeatherByZipCodeAsync(zipCode);
+            }
+            catch (Refit.ApiException rex)
+            {
+                var content = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenWeatherMapApiError>(rex.Content);
+
+                switch (content.Cod)
+                {
+                    case 401:
+                        return Unauthorized();
+                    case 404:
+                        return NotFound(content.Message);
+                    case 429:
+                        return new RateLimitedActionResult(content);
+                    default:
+                        return NotFound();
+                }
+            }
+
+            return Ok(currentWeatherResult);
+        }
     }
 }

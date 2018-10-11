@@ -54,7 +54,7 @@ namespace Ukko.API.Services
         /// </summary>
         /// <param name="apiKey"></param>
         /// <returns></returns>
-        public async Task<CurrentWeather> GetCurrentWeatherByZipCodeAsync(uint apiKey)
+        public async Task<OpenWeatherMapApiCurrentWeather> GetCurrentWeatherByZipCodeAsync(uint apiKey)
             => await this.owms.GetCurrentWeatherByZipCodeAsync(apiKey, await GetApiKeyAsync().ConfigureAwait(false)).ConfigureAwait(false);
     }
 }

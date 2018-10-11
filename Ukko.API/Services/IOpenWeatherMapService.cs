@@ -11,6 +11,6 @@ namespace Ukko.API.Services
     interface IOpenWeatherMapService
     {
         [Get("/weather?zip={zipCode},us&appid={apiKey}")]
-        Task<CurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipCode, string apiKey);
+        Task<OpenWeatherMapApiCurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipCode, string apiKey);
     }
 }
