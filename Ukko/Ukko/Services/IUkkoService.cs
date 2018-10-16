@@ -9,7 +9,7 @@ namespace Ukko.Services
 {
     interface IUkkoService
     {
-        [Get("/Weather/{zipCode}")]
+        [Get("/Weather/Current/{zipCode}")]
         Task<CurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipCode);
     }
 }

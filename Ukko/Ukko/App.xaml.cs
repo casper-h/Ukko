@@ -4,6 +4,9 @@ using Xamarin.Forms.Xaml;
 using Ukko.Services;
 using Ukko.Views;
 using System.Diagnostics;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Ukko
@@ -16,12 +19,12 @@ namespace Ukko
         {
             InitializeComponent();
 
-            MainPage = new UkkoTest();
+            MainPage = new CurrentWeatherView();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AppCenter.Start("android=8f224560-7adf-459d-8a1a-b460af92f55f;", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
