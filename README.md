@@ -6,7 +6,6 @@
 
 * [Ionic](https://ionicframework.com/)
     * [Capacitor](https://capacitor.ionicframework.com/)
-    * [Ionic Sketch](https://ionicsketch.com/) *Download demo*
 * [ASP.NET Core WebAPI 2.2](https://github.com/aspnet/Home)
     * [Refit REST Library](https://github.com/reactiveui/refit)
     * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
@@ -14,7 +13,6 @@
 * [VS Code](https://code.visualstudio.com/download)
     * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
     * [OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [Lunacy](https://www.microsoft.com/en-us/p/lunacy-sketch-for-windows/9pnlmkkpcljj?ocid=badge&rtc=1&activetab=pivot:overviewtab)
 
 ## Services
 
@@ -24,8 +22,7 @@
 
 1. Install Ionic
 2. Install [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.103-windows-x64-installer)
-3. Install Lunacy
-4. Install some code editor of your choice. VS Code is recommended.
+3. Install some code editor of your choice. VS Code is recommended.
 
 ### Usage
 
@@ -48,10 +45,6 @@ There is a swagger doc located within the project located at:
 ```url
 <LOCAL_IP>:<PORT>/swagger
 ```
-
-## UI/UX and Design Tools
-
-Lunacy (sketch for windows) will be used to create designs.
 
 ## Contribution Conventions and Guidelines
 
