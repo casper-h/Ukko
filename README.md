@@ -39,7 +39,7 @@ Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.Ionic\` and run the following 
 ```bash
 ionic serve
 ```
-> If you want to run in a device emulator follow these instructions.
+> If you want to run in a device emulator follow these [instructions](https://cordova.apache.org/docs/en/8.x/guide/platforms/android/).
 
 ## API Documentation
 
