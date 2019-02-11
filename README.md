@@ -26,15 +26,20 @@
 
 ### Usage
 
-The project is comprised of two parts. One is the API / backend, and the other is the Xamarin project which accounts for users and frontend across mobile/Windows apps. While developing the API project must be ran seperatly from the xamarin project to hit the APIs at least until a mock API is created.
-
-### Command Line
-
-Enter the following command in the `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.API\` folder.
+#### Running the API Project Locally
+Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.API\` and run the following command:
 
 ```bash
 dotnet run
 ```
+
+#### Running Ionic Project Locally
+Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.Ionic\` and run the following command:
+
+```bash
+ionic serve
+```
+> If you want to run in a device emulator follow these instructions.
 
 ## API Documentation
 
