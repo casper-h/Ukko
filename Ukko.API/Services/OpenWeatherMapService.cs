@@ -1,8 +1,4 @@
-﻿using Microsoft.Azure.KeyVault;
-using Microsoft.Azure.KeyVault.Models;
-using Microsoft.Azure.Services.AppAuthentication;
-using Refit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -10,6 +6,8 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Ukko.API.Models;
+using Refit;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ukko.API.Services
 {
@@ -17,9 +15,9 @@ namespace Ukko.API.Services
     {
         private readonly IOpenWeatherMapService owms;
 
-        private string ApiKey { get; set; }
-
-        public OpenWeatherMapService() => this.owms = RestService.For<IOpenWeatherMapService>(
+        public OpenWeatherMapService()
+        {
+            this.owms = RestService.For<IOpenWeatherMapService>(
                 new HttpClient()
                 {
                     BaseAddress = new Uri(@"https://api.openweathermap.org/data/2.5")
@@ -29,30 +27,23 @@ namespace Ukko.API.Services
                     JsonSerializerSettings = Utilities.JsonSettingsUtility.GetSnakeCaseJsonSerializerSettings()
                 }
             );
+        }
 
         /// <summary>
-        /// Retrieves the app key from azure key vault, and sets for use in the API service.
+        /// Retrieves the app key from db, and sets for use in the API service.
         /// </summary>
         /// <returns></returns>
         private async Task<string> GetApiKeyAsync()
         {
-            if (ApiKey is null)
-            {
-                var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                var secret = "<TODO>";
-
-                this.ApiKey = secret;
-            }
-
-            return this.ApiKey;
+            return "103568c27d532a9d90c41c5b14596560";
         }
 
         /// <summary>
         /// Gets the current weather for a zip code.
         /// </summary>
-        /// <param name="apiKey"></param>
+        /// <param name="zipcode"></param>
         /// <returns></returns>
-        public async Task<OpenWeatherMapApiCurrentWeather> GetCurrentWeatherByZipCodeAsync(uint apiKey)
-            => await this.owms.GetCurrentWeatherByZipCodeAsync(apiKey, await GetApiKeyAsync().ConfigureAwait(false)).ConfigureAwait(false);
+        public async Task<OpenWeatherMapApiCurrentWeather> GetCurrentWeatherByZipCodeAsync(uint zipcode)
+            => await this.owms.GetCurrentWeatherByZipCodeAsync(zipcode, await GetApiKeyAsync());
     }
 }

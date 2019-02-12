@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,11 @@ namespace Ukko.API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseKestrel()
+                .UseKestrel(options =>
+                    {
+                        options.Listen(IPAddress.Loopback, 5000);
+                        options.Listen(IPAddress.Any, 80);  
+                    })
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>();

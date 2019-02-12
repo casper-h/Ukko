@@ -10,15 +10,17 @@ using System.Text.RegularExpressions;
 
 namespace Ukko.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Weather")]
     [ApiController]
     public class WeatherController : ControllerBase
     {
         private readonly OpenWeatherMapService owms;
+        private readonly WeatherContext context;
 
-        public WeatherController()
+        public WeatherController(WeatherContext context)
         {
             this.owms = new OpenWeatherMapService();
+            this.context = context;
         }
 
         /// <summary>

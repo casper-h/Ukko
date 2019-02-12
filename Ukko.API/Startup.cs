@@ -19,6 +19,8 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 using Ukko.API.Helpers;
+using Ukko.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ukko.API
 {
@@ -60,7 +62,9 @@ namespace Ukko.API
                 c.IncludeXmlComments(xmlPath);
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+
+            services.AddDbContext<WeatherContext>(options => options.UseSqlite("Data Source=weather.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
