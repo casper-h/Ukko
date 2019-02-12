@@ -22,7 +22,7 @@ namespace Ukko.API
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel(options =>
                     {
-                        options.Listen(IPAddress.Loopback, 5000);
+                        options.Listen(IPAddress.Loopback, 50470);
                         options.Listen(IPAddress.Any, 80);  
                     })
                 .UseContentRoot(Directory.GetCurrentDirectory())
