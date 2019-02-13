@@ -27,11 +27,16 @@
 ### Usage
 
 #### Running the API Project Locally
-Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.API\` and run the following command:
+Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.API\` and run the following commands:
 
 ```bash
+$env:ASPNETCORE_ENVIRONMENT="Development";
 dotnet run
 ```
+
+> The first command sets the application in developer mode for your local. The second runs the application.
+
+After running this once you can just use `dotnet run` to run the application in development mode. You will need to manually change this if you want to change environments.
 
 #### Running Ionic Project Locally
 Navigate to `...\<CLONED_REPO_LOCATION>\Ukko\Ukko.Ionic\` and run the following command:
