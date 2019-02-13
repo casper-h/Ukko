@@ -21,10 +21,10 @@ namespace Ukko.API
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel(options =>
-                    {
-                        options.Listen(IPAddress.Loopback, 50470);
-                        options.Listen(IPAddress.Any, 80);  
-                    })
+                {
+                    options.Listen(IPAddress.Loopback, 50470);
+                    options.Listen(IPAddress.Any, 50471);
+                })
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>();
