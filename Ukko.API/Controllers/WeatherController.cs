@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Ukko.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
+using Microsoft.Extensions.Logging;
+
 
 namespace Ukko.API.Controllers
 {
@@ -15,12 +17,12 @@ namespace Ukko.API.Controllers
     public class WeatherController : ControllerBase
     {
         private readonly OpenWeatherMapService owms;
-        private readonly WeatherContext context;
+        private readonly ILogger logger;
 
-        public WeatherController(WeatherContext context)
+        public WeatherController(ILogger<WeatherController> logger)
         {
             this.owms = new OpenWeatherMapService();
-            this.context = context;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -76,7 +78,9 @@ namespace Ukko.API.Controllers
         {
             if (!Regex.Match(zipCode.ToString(), @"^[0-9]{5}(?:-[0-9]{4})?$").Success)
             {
-                return BadRequest(new { message = "Provided ZipCode was not a valid United States ZipCode." });
+                var errorMessage = "Provided ZipCode was not a valid United States ZipCode.";
+                this.logger.LogError(errorMessage);
+                return BadRequest(new { message = errorMessage });
             }
 
             OpenWeatherMapApiCurrentWeather currentWeatherResult = new OpenWeatherMapApiCurrentWeather();
@@ -88,6 +92,8 @@ namespace Ukko.API.Controllers
             catch (Refit.ApiException rex)
             {
                 var content = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenWeatherMapApiError>(rex.Content);
+
+                this.logger.LogError(rex, rex.Content);
 
                 switch (content.Cod)
                 {
